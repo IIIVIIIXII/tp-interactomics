@@ -36,12 +36,12 @@ Par exemple, les 100 premières interactions protéine-protéine humaines dispon
 
 Numero de champ | Signification Biologique|
  --- | --- 
-1 | 
-2 |
-3 |
-4 |
-5 |
-6 |
+1 | L'identifiant unique uniprot de la première protéine de l'interaction 
+2 | L'identifiant unique uniprot de la seconde protéine de l'interaction 
+3 | Un identifiant alternatif de la première protéine de l'interaction
+4 | Un identifiant alternatif de la seconde protéine de l'interaction
+5 | Le nom usuel de la première protéine de l'interaction ( pour mettre dans le réseau par ex)
+6 | Le nom usuel de la seconde protéine de l'interaction ( pour mettre dans le réseau par ex)
 
 ##### Utiliser le PMID de la publication pour récuperer les lignes MITAB des interactions rapportées dans l'étude.
 Une librairie pratique pour manipuler des requêtes HTTP est [requests](https://requests.readthedocs.io/en/master/), eg:
@@ -113,18 +113,22 @@ print(f"Nombre total d'interactions {total}, EBV-EBV {len(EBV_EBV_mitab)}")
 
 ##### Que fait la fonction `mitabReader` ?
 ```
+mitabReader permet de parcourir tout notre fichier ligne par ligne en le parsant c'est a dire qu'on ne charge pas tout le fichier ( pratique pour les gros fichiers)
 ```
 
 ##### Après avoir réparé ce code veuillez
 - Extraire les lignes MITAB impliquant uniquement des protéines d'EBV, quel est leur nombre ?
 - Extraire les lignes MITAB impliquant des protéines humaines et des protéines d'EBV, quel est leur nombre ?
 ```
+59 EBV-EBV
+230 proteines au total
 ```
 
 ##### Combien de protéines humaines et virales sont respectivement dans les jeux d'interactions EBV-Human et EBV-EBV ?
 
 ```
-
+64 proteines virales
+et 113 proteines humaines
 ```
 
 ###### Pour la suite du travail assurez-vous d'avoir les deux jeux de données MITAB suivants
